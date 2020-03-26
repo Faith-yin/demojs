@@ -1,0 +1,45 @@
+<!--
+ * @author: 殷鹏飞
+ * @Date: 2019-12-22 16:52:59
+ * @information: 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>金额格式检验</title>
+</head>
+<body>
+    <input type="number" onkeyup="checkInput()" id="input" >
+
+    <script>
+        function checkInput() {
+            let val = document.getElementById('input').value
+            
+            // 保证输入的是数字和.
+            val = val.replace(/[^\d.]/g, "")
+            //保证第一个为数字而不是.
+            val = val.replace(/^\./g, "")
+            //保证只有出现一个.而没有多个.
+            val = val.replace(/\.{2,}/g, ".")
+            //保证.只出现一次，而不能出现两次以上
+            val = val.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".")
+            //只能输入两个小数
+            val = val.replace(/^(\d+)\.(\d\d).*$/, "$1.$2")
+
+            // 此处控制的是如果没有小数点，首位不能为类似于 01、02的金额
+            if((val.indexOf(".")==-1) && val!=0){
+                val = parseFloat(val)
+            }
+
+            document.getElementById('input').value = val
+
+        }
+    
+    </script>
+
+    
+</body>
+</html>

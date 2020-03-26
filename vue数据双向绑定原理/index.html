@@ -1,0 +1,47 @@
+<!--
+ * @author: 殷鹏飞
+ * @Date: 2019-12-23 10:38:14
+ * @information: 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据双向绑定</title>
+</head>
+<body>
+	<input type="text">
+	<input type="button" value="改变data内容" onclick="changeInput()">
+	<h1 id="name"></h1>
+
+
+<script src="observer.js"></script>
+<script src="watcher.js"></script>
+
+<script>
+	function myVue (data, el, exp) {
+		this.data = data;
+		observable(data); //将数据变的可观测
+		el.innerHTML = this.data[exp]; // 初始化模板数据的值
+		new Watcher(this, exp, function(value) {
+			el.innerHTML = value;
+		});
+	}
+
+	var ele = document.querySelector('#name');
+	var input = document.querySelector('input');
+
+	var myVueObj = new myVue({name: 'hello world !'}, ele, 'name');
+
+	//输入框内容变化时触发
+	input.oninput = function (e) {
+		myVueObj.data.name = e.target.value
+	}
+	
+	//改变data内容
+	function changeInput(){
+		myVueObj.data.name = "难凉热血"
+	}
+</script>
+</body>
+</html>
