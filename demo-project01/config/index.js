@@ -1,3 +1,8 @@
+/*
+ * @author: 殷鹏飞
+ * @Date: 2020-03-29 08:18:19
+ * @information: 
+ */
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
@@ -9,8 +14,17 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    proxyTable: {},
+    assetsPublicPath: '/.',
+
+    proxyTable: {
+      '/api': {
+        target: 'https://api.netease.im',
+        changeOrigin: true,
+        psthRewrite: {
+          '^/api': '',
+        },
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
