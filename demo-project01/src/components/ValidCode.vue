@@ -48,7 +48,7 @@ export default {
     createdCode() {
       let codeArr = [],
           chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz0123456789'
-      for(let i = 0; i < 4; i++) {
+      for(let i = 0; i < this.length; i++) {
         let rgb = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)]
         codeArr.push({
           code: chars.charAt(Math.floor(Math.random() * chars.length)),
