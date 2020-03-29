@@ -1,8 +1,8 @@
 <!--
  * @author: 殷鹏飞
  * @Date: 2019-12-23 10:38:14
- * @information: 
- -->
+ * @information: 数据双向绑定
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +10,11 @@
 	<title>数据双向绑定</title>
 </head>
 <body>
-	<input type="text">
-	<input type="button" value="改变data内容" onclick="changeInput()">
-	<h1 id="name"></h1>
+	<div class="container">
+		<input type="text">
+		<input type="button" value="改变data内容" onclick="changeInput()">
+		<h1 id="name"></h1>
+	</div>
 
 
 <script src="observer.js"></script>
@@ -43,5 +45,12 @@
 		myVueObj.data.name = "难凉热血"
 	}
 </script>
+
+<style>
+.container {
+	margin-top: 200px;
+	text-align: center;
+}
+</style>
 </body>
 </html>

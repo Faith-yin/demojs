@@ -1,10 +1,10 @@
 /*
  * @author: 殷鹏飞
  * @Date: 2019-12-23 10:38:14
- * @information: 
+ * @information: 订阅者
  */
 class Watcher {
-	constructor(vm,exp,cb){
+	constructor(vm, exp, cb){
 		this.vm = vm;
 		this.exp = exp;
 		this.cb = cb;
