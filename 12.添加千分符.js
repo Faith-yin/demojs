@@ -1,7 +1,7 @@
 /*
  * @author: 殷鹏飞
  * @Date: 2020-03-30 16:34:36
- * @information: 
+ * @information: 暂未实现
  */
 function operator(n) {
   //  转成字符串

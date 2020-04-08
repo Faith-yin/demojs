@@ -9,6 +9,7 @@ import HomePage from '@/views/HomePage'
 import Page01 from '@/views/page01'
 import Page02 from '@/views/Page02'
 import Page03 from '@/views/Page03'
+import Page04 from '@/views/Page04'
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ export default new Router({
       path: '/Page03',
       name: 'Page03',
       component: Page03
+    },
+    {
+      path: '/Page04',
+      name: 'Page04',
+      component: Page04
     },
   ]
 })

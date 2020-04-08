@@ -11,20 +11,19 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/.',
+    assetsPublicPath: '/',
 
-    proxyTable: {
-      '/api': {
-        target: 'https://api.netease.im',
-        changeOrigin: true,
-        psthRewrite: {
-          '^/api': '',
-        },
-      }
-    },
+    // proxyTable: {
+    //   '/api': {
+    //     target: 'https://api.netease.im',
+    //     changeOrigin: true,
+    //     psthRewrite: {
+    //       '^/api': '',
+    //     },
+    //   }
+    // },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
