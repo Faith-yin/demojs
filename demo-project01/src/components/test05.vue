@@ -2,7 +2,7 @@
  * @author: 殷鹏飞
  * @Date: 2020-04-09 17:29:06
  * @information: 
- -->
+-->
 <template>
   <div id="test05">
     这是test05组件中的内容呢。。。
@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="scss">
-#test05 {
+// #test05 {
 
-}
+// }
 </style>
