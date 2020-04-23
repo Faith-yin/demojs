@@ -5,7 +5,6 @@
 <template>
   <div id="page06">
     <el-input v-model="inputValue" 
-
               placeholder="请输入内容"
               @input="handleInput"></el-input>
   </div>
@@ -25,31 +24,16 @@ export default {
      * @information: value值改变时
      */
     handleInput(val) {
-      // let value = val
-      // // 保证输入的是数字 和 .
-      // value = val.replace(/[^\d.]/g, "")
-      // // 若第一字符是 .  则替换为 0.
-      // value = val.replace(/^\./, "0.")
-      // // 保证只有出现一个  .而没有多个 .
-      // // value = val.replace(/\.{2,}/g, ".")
-      // value = val.replace(/^(\d+),(\.{2,})/g, "$1.")
-      // // 保证.只出现一次，而不能出现两次以上
-      // value = val.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".")
-      // // 只能输入两个小数
-      // value = val.replace(/^(\d+)\.(\d\d).*$/, "$1.$2")
-
-      // // 此处控制的是如果没有小数点，首位不能为类似于 01、02的金额
-      // if((value.indexOf(".") == -1) && value != 0){
-      //   value = parseFloat(value)
-      // }
-
-
       // 若第一字符是 .  则替换为 0.
       val = val.replace(/^\./, "0.")
-      // 保证.只出现一次，而不能出现两次以上
+      // 保证 . 只出现一次 ， 而不能出现两次或两次以上
       val = val.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".")
       // 只能输入两个小数
       val = val.replace(/^(\d+)\.(\d\d).*$/, "$1.$2")
+      // 如果没有小数点，首位不能为类似于 01、02的金额
+      if((val.indexOf(".") == -1) && val != 0){
+        val = parseFloat(val)
+      }
       // 赋值输入框值
       this.inputValue = val
       console.log(val);
