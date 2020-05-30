@@ -5,13 +5,6 @@
  */
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomePage from '@/views/HomePage'
-import Page01 from '@/views/page01'
-import Page02 from '@/views/Page02'
-import Page03 from '@/views/Page03'
-import Page04 from '@/views/Page04'
-import Page05 from '@/views/Page05'
-import Page06 from '@/views/Page06'
 
 Vue.use(Router)
 
@@ -20,37 +13,47 @@ export default new Router({
     {
       path: '/',
       name: 'HomePage',
-      component: HomePage
+      component: () => import('@/views/HomePage')
     },
     {
       path: '/Page01',
       name: 'Page01',
-      component: Page01
+      component: () => import('@/views/Page01')
     },
     {
       path: '/Page02',
       name: 'Page02',
-      component: Page02
+      component: () => import('@/views/Page02')
     },
     {
       path: '/Page03',
       name: 'Page03',
-      component: Page03
+      component: () => import('@/views/Page03')
     },
     {
       path: '/Page04',
       name: 'Page04',
-      component: Page04
+      component: () => import('@/views/Page04')
     },
     {
       path: '/Page05',
       name: 'Page05',
-      component: Page05
+      component: () => import('@/views/Page05')
     },
     {
       path: '/Page06',
       name: 'Page06',
-      component: Page06
+      component: () => import('@/views/Page06')
+    },
+    {
+      path: '/Page07',
+      name: 'Page07',
+      component: () => import('@/views/Page07')
+    },
+    {
+      path: '/Page08',
+      name: 'Page08',
+      component: () => import('@/views/Page08')
     },
   ]
 })

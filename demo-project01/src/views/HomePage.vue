@@ -25,6 +25,10 @@
       <div>
         <router-link to="Page06">Page06</router-link>
       </div>
+      <div @click="jumpPage">Page07</div>
+      <div>
+        <router-link to="Page08">Page08</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -37,7 +41,9 @@ export default {
     }
   },
   methods: {
-    
+    jumpPage() {
+      this.$router.push({name: 'Page07', query: {accessToken: 'ypf123456789', equipmentType: 1}})
+    },
   },
   mounted() {
 

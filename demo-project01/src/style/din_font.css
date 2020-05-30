@@ -1,0 +1,19 @@
+@font-face {
+  font-family: DIN-Black_0;
+  src: url('../assets/fonts/din_font/DIN-Black_0.otf');
+}
+
+@font-face {
+  font-family: DIN-DIN-Bold_0;
+  src: url('../assets/fonts/din_font/DIN-Bold_0.otf');
+}
+
+@font-face {
+  font-family: DIN-Light_0;
+  src: url('../assets/fonts/din_font/DIN-Light_0.otf');
+}
+
+@font-face {
+  font-family: DIN-Medium;
+  src: url('../assets/fonts/din_font/DIN-Medium.otf');
+}
