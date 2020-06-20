@@ -1,6 +1,6 @@
 <!--
  * @Date: 2020-05-27 09:49:58
- * @information:
+ * @information:路由参数
 -->
 <template>
   <div>

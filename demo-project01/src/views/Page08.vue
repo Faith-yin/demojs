@@ -1,6 +1,6 @@
 <!--
  * @Date: 2020-05-30 16:21:27
- * @information:
+ * @information: 引入自定义字体
 -->
 <template>
   <div id="page08">

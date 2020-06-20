@@ -29,6 +29,12 @@
       <div>
         <router-link to="Page08">Page08</router-link>
       </div>
+      <div>
+        <router-link to="Page09">Page09</router-link>
+      </div>
+      <div>
+        <router-link to="Page10">Page10</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -53,7 +59,6 @@ export default {
 
 <style lang="scss">
 #home-page {
-  width: 800px;
   margin: 0 auto;
   .title-info {
     text-align: center;
