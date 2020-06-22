@@ -65,5 +65,15 @@ export default new Router({
       name: 'Page10',
       component: () => import('@/views/Page10')
     },
+    {
+      path: '/Page11',
+      name: 'Page11',
+      component: () => import('@/views/Page11')
+    },
+    {
+      path: '/Page12',
+      name: 'Page12',
+      component: () => import('@/views/Page12')
+    },
   ]
 })

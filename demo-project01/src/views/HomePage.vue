@@ -35,6 +35,12 @@
       <div>
         <router-link to="Page10">Page10</router-link>
       </div>
+      <div>
+        <router-link to="Page11">Page11</router-link>
+      </div>
+      <div>
+        <router-link to="Page12">Page12</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -65,8 +71,10 @@ export default {
     padding: 50px 0;
   }
   .container {
-    display: flex;
-    justify-content: space-around;
+    text-align: center;
+    div {
+      margin: 20px 0;
+    }
   }
 }
 </style>
