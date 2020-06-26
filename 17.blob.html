@@ -1,0 +1,33 @@
+<!--
+ * @Date: 2020-06-25 15:42:40
+ * @information: 利用blob回显图片
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" accept="image/*" onchange="handleFile(this)" />
+  <br/>
+  <img style="width:200px;height:200px">
+
+
+  <script>
+    function handleFile(e) {
+        console.log(e.files)
+        var file = e.files[0];
+        var blob = URL.createObjectURL(file);
+        var img = document.getElementsByTagName("img")[0];
+        img.src = blob;
+        img.onload = function(e) {
+            URL.revokeObjectURL(this.src);  // 释放createObjectURL创建的对象##
+        }
+    }
+  </script>
+
+
+</body>
+</html>
