@@ -25,6 +25,26 @@ Vue.use(ypfMethods)
 Vue.use(Vant)
 
 
+// 自定义全局指令
+Vue.directive('task', {
+  bind(el, binding, vnode) {
+    // console.log(el, binding, vnode)
+    // :后的参数 =后的参数
+    let {arg, value} = binding
+    if(arg) {
+      el.style[arg] = value
+    }else {
+      Object.keys(value).forEach(el1 => {
+        Object.values(value).forEach(el2 => {
+          el.style[el1] = el2
+        })
+      })
+    }
+  }
+})
+
+
+
 new Vue({
   el: '#app',
   router,
