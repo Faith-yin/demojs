@@ -1,0 +1,61 @@
+<!--
+ * @Date: 2020-07-09 11:03:04
+ * @information: 伪元素
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 伪元素</title>
+  <style>
+.box {
+  width: 100px;
+  height: 50px;
+  border: 2px solid #000;
+}
+
+/* 实现思路：白色小三角形叠加在黑色大三角形上面，就只剩下2px的黑边了，实现了右边的小凸起效果 */
+
+/* 白色三角形 */
+.box::before {
+  content: ' ';
+  width: 0px;
+  height: 0px;
+  border-top: 20px solid #fff;
+  border-left: 20px solid transparent;
+  transform: rotate(45deg);
+  position: absolute;
+  left: 100px;
+  top: 24px;
+  z-index: 1;
+}
+
+/* 黑色三角形 */
+.box::after { 
+  content: ' ';
+  width: 0px;
+  height: 0px;
+  border-top: 22px solid #000;
+  border-left: 22px solid transparent;
+  transform: rotate(45deg);
+  position: absolute;
+  left: 100px;
+  top: 23px;
+}
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <div style="display: flex;">
+    <div class="box"></div>
+  </div>
+
+
+
+</body>
+</html>
