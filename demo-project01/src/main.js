@@ -15,6 +15,9 @@ import ypfMethods from 'ypf-methods'
 import Vant from 'vant'
 import 'vant/lib/index.css'
 
+import Directive from './directives'
+Vue.use(Directive)
+
 
 Vue.config.productionTip = false
 
