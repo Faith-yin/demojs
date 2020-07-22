@@ -1,7 +1,7 @@
 <!--
  * @author: 殷鹏飞
  * @Date: 2020-04-09 17:29:06
- * @information: 
+ * @information:
 -->
 <template>
   <div id="test05">
@@ -25,10 +25,13 @@ export default {
     }
   },
   methods: {
-    
+
+  },
+  created() {
+    console.log('test  -- created')
   },
   mounted() {
-
+    console.log('test  -- mounted')
   }
 }
 </script>

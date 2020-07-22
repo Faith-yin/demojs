@@ -44,6 +44,12 @@
       <div>
         <router-link to="Page13">Page13</router-link>
       </div>
+      <div>
+        <router-link to="Page14">Page14</router-link>
+      </div>
+      <div>
+        <router-link to="Page15">Page15</router-link>
+      </div>
     </div>
   </div>
 </template>

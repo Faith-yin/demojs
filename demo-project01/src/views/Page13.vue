@@ -1,6 +1,7 @@
 <!--
  * @Date: 2020-06-24 16:23:21
  * @information: 伪元素作为边框
+*  @information: 验证子组件、父组件、混入 的生命周期执行顺序
 -->
 <template>
   <div id="page13" v-load="true">
@@ -16,21 +17,36 @@
       <li>其实，但是，一言难尽……为了防止类似事件再次发生，欢迎广大网友踊跃提供类似线索，通过评论或私信留言。我们自掏腰包，准备好一千瓶老干妈作为奖励，里面还包含限量版的孤品哦！</li>
       <li>其实，但是，一言难尽……为了防止类似事件再次发生，欢迎广大网友踊跃提供类似线索，通过评论或私信留言。我们自掏腰包，准备好一千瓶老干妈作为奖励，里面还包含限量版的孤品哦！</li>
     </ul>
+    <test05></test05>
   </div>
 </template>
 
 <script>
+import page13 from '@/mixins/page13'
+import page1301 from '@/mixins/page13-01'
+import test05 from '@/components/test05'
+
 export default {
+  mixins: [page1301, page13],
+  components: {
+    test05
+  },
   data() {
     return {
-
+      aa: '这数据',
     }
   },
   methods: {
-
+    fun01() {},
+  },
+  created() {
+    console.log('这是created的函数')
   },
   mounted() {
-
+    console.log('这是mounted的函数')
+  },
+  beforeDestroy() {
+    console.log(this)
   }
 }
 </script>
