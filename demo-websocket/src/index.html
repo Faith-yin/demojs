@@ -1,0 +1,85 @@
+<!--
+ * @Date: 2020-07-27 14:50:43
+ * @information: 客户端
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>websocket简易聊天室</title>
+  <style>
+    div#content{
+      width: 700px;
+      height: 600px;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      border-radius:  10px;
+      overflow: auto;
+    }
+    #sendCtrls{
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <div id="log"></div>
+  </div>
+  <div id="sendCtrls">
+    <input type="text" name="name" id="name" />
+    <button id="button">发送</button>
+  </div>
+
+
+  <script>
+    let name = prompt('你叫什么名字？')
+    let log = document.getElementById('log')
+    
+    let sock = new WebSocket('ws://localhost:3000')
+
+    sock.onopen = (params) => {
+      console.log('连接成功', params)
+      // 发送名字
+      sock.send(JSON.stringify({
+        type: 'name',
+        data: name
+      }))
+    }
+    sock.onerror = (error) => {
+      console.log('连接失败', error)
+    }
+
+    // 接收数据
+    sock.onmessage = (ms) => {
+      let json = JSON.parse(ms.data)
+      json.name == name && (json.name = '我')
+      log.innerHTML += `${json.name}  <${json.time}><br/>${json.data}<br/>`
+    }
+
+    // 提交输入的数据
+    document.getElementById('button').onclick = () => {
+      let text = document.getElementById('name').value
+      // 时间
+      let date = new Date()
+      let h = date.getHours()
+      let m = date.getMinutes()
+      let s = date.getSeconds()
+      // 发送消息
+      sock.send(JSON.stringify({
+        type: 'message',
+        data: text,
+        time: `${h}:${m}:${s}`
+      }))
+      document.getElementById('name').value = '' 
+    }
+
+
+
+
+  </script>
+  
+</body>
+</html>
