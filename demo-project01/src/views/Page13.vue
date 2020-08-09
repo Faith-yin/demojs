@@ -40,10 +40,10 @@ export default {
     fun01() {},
   },
   created() {
-    console.log('这是created的函数')
+    console.log('这是父组件中created的函数')
   },
   mounted() {
-    console.log('这是mounted的函数')
+    console.log('这是父组件中mounted的函数')
   },
   beforeDestroy() {
     console.log(this)

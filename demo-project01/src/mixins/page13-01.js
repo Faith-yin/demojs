@@ -2,7 +2,10 @@
  * @Date: 2020-07-16 18:15:39
  * @information:
  */
+import page13 from './page13'
+
 export default {
+  mixins: [page13],
   data() {
     return {
       cc: '这是混入进去的数据page13-01'

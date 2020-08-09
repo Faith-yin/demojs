@@ -50,6 +50,9 @@
       <div>
         <router-link to="Page15">Page15</router-link>
       </div>
+      <div>
+        <router-link to="Page16">Page16</router-link>
+      </div>
     </div>
   </div>
 </template>

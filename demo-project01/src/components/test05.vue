@@ -28,10 +28,10 @@ export default {
 
   },
   created() {
-    console.log('test  -- created')
+    console.log('这是子组件中 test  -- created')
   },
   mounted() {
-    console.log('test  -- mounted')
+    console.log('这是子组件中 test  -- mounted')
   }
 }
 </script>
