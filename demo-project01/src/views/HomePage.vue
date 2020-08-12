@@ -53,6 +53,9 @@
       <div>
         <router-link to="Page16">Page16</router-link>
       </div>
+      <div>
+        <router-link to="Page17">Page17</router-link>
+      </div>
     </div>
   </div>
 </template>
