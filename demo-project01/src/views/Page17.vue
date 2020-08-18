@@ -1,19 +1,20 @@
-<!--
- * @Date: 2020-08-12 13:58:17
- * @information:
--->
 <template>
   <div id="page17">
-
+    <table-loading></table-loading>
   </div>
 </template>
 
 <script>
+import TableLoading from '@/components/TableLoading'
+
 export default {
   data() {
     return {
 
     }
+  },
+  components: {
+    'table-loading': TableLoading
   },
   methods: {
 
@@ -28,10 +29,5 @@ export default {
 </script>
 
 <style lang="scss">
-#page17 {
-  width: 80%;
-  margin: 200px auto 0;
 
-
-}
 </style>
