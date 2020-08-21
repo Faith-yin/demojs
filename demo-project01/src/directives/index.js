@@ -1,13 +1,18 @@
 /*
  * @Date: 2020-07-09 14:13:49
- * @information: index
+ * @information: 指令注册
  */
-import Loading from './loading'
+import Loading from './loading/loading'
 
+let directiveArr = [
+  ['ypfLoading' , Loading],
+]
 
 export default {
   install (Vue) {
-    Vue.directive('load', Loading)
+    directiveArr.forEach(el => {
+      Vue.directive(el[0], el[1])
+    })
   }
 }
 
