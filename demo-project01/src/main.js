@@ -14,9 +14,8 @@ import echarts from 'echarts'
 import ypfMethods from 'ypf-methods'
 import Vant from 'vant'
 import 'vant/lib/index.css'
-
 import Directive from './directives'
-Vue.use(Directive)
+import VueMeta from 'vue-meta'
 
 
 Vue.config.productionTip = false
@@ -26,6 +25,8 @@ Vue.use(ElementUI)
 Vue.prototype.$echarts = echarts
 Vue.use(ypfMethods)
 Vue.use(Vant)
+Vue.use(Directive)
+Vue.use(VueMeta)
 
 
 // 自定义全局指令
