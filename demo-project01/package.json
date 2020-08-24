@@ -23,6 +23,7 @@
     "vue-meta": "^2.4.0",
     "vue-pdf": "^4.1.0",
     "vue-router": "^3.0.1",
+    "vue2-better-scroll": "^1.2.1",
     "ypf-methods": "^1.2.3",
     "zjsmethods": "^1.5.6"
   },

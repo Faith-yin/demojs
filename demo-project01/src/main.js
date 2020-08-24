@@ -16,6 +16,7 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 import Directive from './directives'
 import VueMeta from 'vue-meta'
+import VueBetterScroll from 'vue2-better-scroll'
 
 
 Vue.config.productionTip = false
@@ -27,6 +28,7 @@ Vue.use(ypfMethods)
 Vue.use(Vant)
 Vue.use(Directive)
 Vue.use(VueMeta)
+Vue.use(VueBetterScroll)
 
 
 // 自定义全局指令

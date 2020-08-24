@@ -65,6 +65,9 @@
       <div>
         <router-link to="Page20">Page20</router-link>
       </div>
+      <div>
+        <router-link to="Page21">Page21</router-link>
+      </div>
     </div>
   </div>
 </template>
