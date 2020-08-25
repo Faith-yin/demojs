@@ -1,6 +1,7 @@
 <!--
  * @Date: 2020-08-24 16:23:49
  * @information: svg
+   参考：https://www.zhangxinxu.com/wordpress/2014/04/animateion-line-drawing-svg-path-%E5%8A%A8%E7%94%BB-%E8%B7%AF%E5%BE%84/
 -->
 <template>
   <div id="page22">
