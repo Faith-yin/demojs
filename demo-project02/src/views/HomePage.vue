@@ -4,7 +4,7 @@
 -->
 <template>
   <div id="home-page">
-homepage
+    <router-link to="Page01">Page01</router-link>
   </div>
 </template>
 
@@ -29,6 +29,6 @@ export default {
 
 <style lang="scss">
 #home-page {
-  
+  text-align: center;
 }
 </style>

@@ -1,0 +1,35 @@
+<!--
+ * @Date: 2020-08-26 09:03:10
+ * @information: 基础样式试验
+-->
+<template>
+  <div id="page01">
+    <div class="fz--25 fw--700 mt--100 pt--30 color--primary bgc--eee display--flex jc--sb lh--60">
+      <div>这是测试文字daunt111</div>
+      <div>这是测试文字daunt222</div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+
+    }
+  },
+  methods: {
+
+  },
+  created() {
+
+  },
+  mounted() {
+
+  }
+}
+</script>
+
+<style lang="scss">
+
+</style>

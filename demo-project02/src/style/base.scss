@@ -1,0 +1,167 @@
+/*
+ * @Date: 2020-08-26 09:04:03
+ * @information: 基础样式
+ */
+// 常用颜色
+$primaryColor: #1fb19e; // 主题色
+$primaryColo2: #00B067; // 主题色2
+$dangerColor: #eb4c44; // 危险色
+$warningColor: #ff8b37; // 警告色
+// 元素间距配置
+$spaceConfig: (
+  ml: 'margin-left',
+  mr: 'margin-right',
+  mb: 'margin-bottom',
+  mt: 'margin-top',
+  pl: 'padding-left',
+  pr: 'padding-right',
+  pb: 'padding-bottom',
+  pt: 'padding-top',
+);
+// 常用文字颜色配置
+$colorConfig: (
+  primary: $primaryColor,
+  primary2: $primaryColo2, 
+  danger: $dangerColor, 
+  warning: $warningColor, 
+  333: '#333', // 常用黑色
+  999: '#999', // 灰色
+  000: '#000', // 纯黑色
+);
+// 常用元素背景颜色配置
+$bgcConfig: (
+  primary: $primaryColor,
+  primary2: $primaryColo2, 
+  danger: $dangerColor, 
+  warning: $warningColor, 
+  fff: '#fff', // 白色
+  eee: '#eee', // 灰色
+  f7f7f7: '#f7f7f7', // 灰色2
+);
+// 常用 display布局 配置
+$displayConfig: (
+  flex: 'flex',
+  block: 'block',
+  inline: 'inline',
+  inline-block: 'inline-block',
+  none: 'none',
+);
+// flex布局 主轴对齐方式 配置
+$justifyContentConfig: (
+  fs: 'flex-start',
+  fe: 'flex-end',
+  center: 'center',
+  sb: 'space-between',
+  sa: 'space-around',
+);
+// flex布局 交叉轴对齐方式 配置
+$alignItemConfig: (
+  fs: 'flex-start',
+  fe: 'flex-end',
+  center: 'center',
+  baseline: 'baseline',
+  stretch: 'stretch',
+);
+// 行内元素 text-align 属性 配置
+$textAlignConfig: (
+  start: 'start',
+  end: 'end',
+  left: 'left',
+  right: 'right',
+  center: 'center',
+  justify: 'justify', // 文字向两侧对齐，对最后一行无效
+  justifyAll: 'justify-all', // 和justify一致，但是强制使最后一行两端对齐
+); 
+
+
+// 元素间距 (1-500之间，10的倍数)
+@each $key, $value in $spaceConfig {
+  @for $i from 1 through 150 {
+    .#{$key}--#{$i} {
+      #{$value}: #{$i * 1px};
+    }
+  }
+}
+
+// 元素居中
+@for $i from 1 through 100 {
+  .m__auto--#{$i} {
+    margin: #{$i * 1px} auto;
+  }
+}
+
+// 文字颜色
+@each $key, $value in $colorConfig {
+  .color--#{$key} {
+    color: #{$value};
+  }
+}
+
+// 文字大小
+@for $i from 1 through 50 {
+  .fz--#{$i} {
+    font-size: #{$i * 1px};
+  }
+}
+
+// 文字粗细（400 normal，700 bold，900 bolder）
+@for $i from 100 through 900 {
+  @if $i%100 == 0 {
+    .fw--#{$i} {
+      font-weight: #{$i * 1};
+    }
+  }
+}
+@each $i in normal, bold, bolder {
+  .fw--#{$i} {
+    font-weight: #{$i};
+  }
+}
+
+// 块级元素 行高 (1-300之间，5的倍数)
+@for $i from 1 through 150 {
+  @if $i%5 == 0 {
+    .lh--#{$i} {
+      line-height: #{$i * 1px};
+    }
+  }
+}
+
+// 元素背景颜色
+@each $key, $value in $bgcConfig {
+  .bgc--#{$key} {
+    background-color: #{$value};
+  }
+}
+
+// 元素布局
+@each $key, $value in $displayConfig {
+  .display--#{$key} {
+    display: #{$value};
+  }
+}
+
+// flex布局 主轴对齐方式
+@each $key, $value in $justifyContentConfig {
+  .jc--#{$key} {
+    justify-content: #{$value};
+  }
+}
+
+// flex布局 交叉轴对齐方式
+@each $key, $value in $alignItemConfig {
+  .ai--#{$key} {
+    align-items: #{$value};
+  }
+}
+
+// 行内元素 text-align 属性
+@each $key, $value in $textAlignConfig {
+  .ta--#{$key} {
+    text-align: #{$value};
+  }
+}
+
+
+
+
