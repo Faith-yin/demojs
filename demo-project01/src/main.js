@@ -17,6 +17,7 @@ import 'vant/lib/index.css'
 import Directive from './directives'
 import VueMeta from 'vue-meta'
 import VueBetterScroll from 'vue2-better-scroll'
+import zjsmethods from 'zjsmethods'
 
 
 Vue.config.productionTip = false
@@ -25,6 +26,7 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.prototype.$echarts = echarts
 Vue.use(ypfMethods)
+Vue.use(zjsmethods)
 Vue.use(Vant)
 Vue.use(Directive)
 Vue.use(VueMeta)

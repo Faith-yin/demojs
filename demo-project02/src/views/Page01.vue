@@ -8,24 +8,35 @@
       <div>这是测试文字daunt111</div>
       <div>这是测试文字daunt222</div>
     </div>
+    <com01 :obj="obj"></com01>
   </div>
 </template>
 
 <script>
+import com01 from '../components/Com01.vue'
+import axios from 'axios'
+
 export default {
   data() {
     return {
-
+      obj: {},
     }
+  },
+  components: {
+    com01
   },
   methods: {
 
   },
   created() {
-
+    // axios.get(`https://dbsitefront.allhome.com.cn/v1/website/home/show/scrollDate`).then(({data}) => {
+    //   this.obj = data.result
+    // })
   },
   mounted() {
-
+    axios.get(`https://dbsitefront.allhome.com.cn/v1/website/home/show/scrollDate`).then(({data}) => {
+      this.obj = data.result
+    })
   }
 }
 </script>

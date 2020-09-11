@@ -12,6 +12,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -22,7 +23,8 @@ export default {
 
   },
   created() {
-
+    let aa =  this._strEncryp(String('6245632541256325670'), 0, -5)
+    console.log('->',aa)
   },
   mounted() {
 
