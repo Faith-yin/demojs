@@ -5,6 +5,7 @@
 <template>
   <div id="home-page">
     <router-link to="Page01">Page01</router-link>
+    <router-link to="Page02">Page02</router-link>
   </div>
 </template>
 
@@ -30,5 +31,8 @@ export default {
 <style lang="scss">
 #home-page {
   text-align: center;
+  a {
+    margin: 0 10px;
+  }
 }
 </style>
