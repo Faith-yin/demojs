@@ -34,6 +34,8 @@ export default {
         console.log('结果: 成功->', result)
       } catch (error) {
         console.log('结果：失败->', error)
+      } finally {
+        console.log(`结果：finally`)
       }
     },
 
