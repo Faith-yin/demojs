@@ -18,6 +18,7 @@
 </template>
 
 <script>
+// clipboard 移动端兼容性有问题 部分机型不行
 import Clipboard from 'clipboard'
 
 export default {
