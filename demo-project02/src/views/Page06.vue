@@ -5,6 +5,8 @@
 -->
 <template>
   <div id="page06">
+    <div>{{sum(1, 2)}}</div>
+
     <button @click="updateCount()">update Count</button>
     <button @click="getCount1()">Get Count1</button>
     <button @click="getCount2()">Get Count2</button>
@@ -19,6 +21,12 @@ export default {
     }
   },
   computed: {
+    sum() {
+      return (a, b) => {
+        return a + b
+      }
+    },
+
     count1() {
       console.log('get count1')
       return 'Count1:' + this.count + ',' + Date.now()
