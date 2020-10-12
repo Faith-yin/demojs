@@ -43,7 +43,11 @@ const routes = [
     name: 'Page06',
     component: () => import('@/views/Page06.vue')
   },
-
+  {
+    path: '/Page07',
+    name: 'Page07',
+    component: () => import('@/views/Page07.vue')
+  },
 
 
 ]
