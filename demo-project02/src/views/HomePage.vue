@@ -11,6 +11,7 @@
     <router-link to="Page05">Page05</router-link>
     <router-link to="Page06">Page06</router-link>
     <router-link to="Page07">Page07</router-link>
+    <router-link to="Page08">Page08</router-link>
   </div>
 </template>
 
