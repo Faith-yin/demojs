@@ -15,7 +15,7 @@
 export default {
   data() {
     return {
-      path: `https://finance-images-test.oss-us-west-1.aliyuncs.com/h516031808960008776`,
+      path: `https://qjdev-pred-files.oss-cn-beijing.aliyuncs.com/report_accounts_java/EMSSJUJ20201017104501647DGRiRGVZ.pdf`,
     }
   },
   methods: {
