@@ -10,7 +10,17 @@ module.exports = {
     port: 8180, 
     https: false,
     open: true,
-    // proxy: {},
+    // 跨域配置
+    proxy: {
+      '/api': {
+        target: `https://api.mz-moe.cn`,
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
   }
 
 

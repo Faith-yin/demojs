@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -17,19 +19,37 @@ export default {
   },
   methods: {
     fun(val) {
-      try {
-        val = val.toFixed(2)
-      } catch (error) {
-        console.log('111出错了:', error)
-      }
+      return axios.post(`https://dfinance.allhome.com.cn/finance/citicPlatform/registerBook/unbindCard`, {
+        mchntUserId: "pred00002590",
+        userIdNumber: "pMsYOnCzi98ELN5hXsH9SLnPKNP5X9fgZmojO+LgTGlswhpp0iJ2JAtagz1ANyiH54ETK5dCH/2pUVKmMujU9ObxcUSJa/+JbvpffAPWT1kpI6X1ZlQEZM2XxM59uwZxd2nE9zycW+eoK9fc4AlqAYT15LwAUznuMuUPYGmwsLs=",
+        userName: "小可科技有限公司",
+      }).then(res => {
+        if(res.data.statusCode === 1000) {
+          console.log('Promise.resolve', res)
+          return Promise.resolve(res)
+        } else {
+          console.log('Promise.resolve...reject')
+          return Promise.reject(res.data)
+        }
+      }).catch(error => {
+        console.log('Promise.reject', error)
+        return Promise.reject(error)
+      })
+
+
     },
   },
-  created() {
+  async created() {
+
     try {
-      this.fun('1.23456')
+      let res = await this.fun(12343)
+      console.log('res-->', res)
     } catch (error) {
-      console.log('222出错了:', error)
+      console.log('error-->', error)
     }
+
+
+
   },
   mounted() {
 
