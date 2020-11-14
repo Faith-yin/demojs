@@ -1,0 +1,74 @@
+<!--
+ * @Date: 2020-11-07 11:19:36
+ * @information: 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24</title>
+<style>
+
+.par {
+  width: 700px;
+  height: 300px;
+  background-color: #eee;
+  /* overflow: hidden; */
+}
+
+.child {
+  width: 100px;
+  height: 200px;
+  float: left;
+}
+
+.child1 {
+  background-color: pink;
+}
+
+.child2 {
+  background-color: orange;
+}
+
+.child3 {
+  width: 50px;
+  height: 50px;
+  background-color: #ff6700;
+  clear: both; /* 清除浮动 */
+}
+
+</style>
+
+
+</head>
+<body>
+
+
+  <div class="par">
+    <div class="child child1"></div>
+    <!-- 给这两个子div加浮动，浮动的结果，如果没有清除浮动的话，父div不会将下面两个div包裹，但还是在父div的范围之内。 -->
+    <div class="child child2"></div>
+    <div>清除浮动原理：触发父div的BFC属性，使下面的子div都处在父div的同一个BFC区域之内，此时已成功清除浮动。</div>
+    <div class="child3">child3</div>
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
