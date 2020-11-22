@@ -1,0 +1,345 @@
+<!--
+ * @Date: 2020-11-10 13:33:42
+ * @information: canvas: https://www.runoob.com/w3cnote/html5-canvas-intro.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas</title>
+</head>
+<body>
+
+<canvas id="canvas" width="300" height="300">浏览器不支持canvas</canvas>
+
+
+<script>
+
+  let canvas = document.getElementById('canvas')
+  // 获得2d 上下文对象
+  let ctx = canvas.getContext('2d')
+  console.log(canvas, ctx)
+
+  // 绘制矩形
+  function draw1() {
+    ctx.fillStyle = "#ff6700"
+    ctx.strokeRect(10,10,200,200)
+    ctx.fillRect(10,10,100,100)
+  
+    ctx.fillStyle = "rgba(0, 0, 200, 0.5)"
+    ctx.fillRect (30, 30, 55, 50);
+  }
+  // draw1()
+
+
+  // 绘制线段
+  function draw2() {
+    // 新建一条path
+    ctx.beginPath()
+    // 把画笔移动到指定的坐标
+    ctx.moveTo(50, 50)
+    // 绘制一条从当前位置到指定坐标的直线
+    ctx.lineTo(200, 50)
+    // 闭合路径，会拉一条从当前点到path起始点的直线。如果当前点与起始点重合，则什么都不做
+    ctx.closePath()
+    // 绘制路径
+    ctx.stroke()
+  }
+  // draw2()
+
+
+  // 绘制三角形
+  function draw3() {
+    ctx.beginPath()
+    ctx.moveTo(50,50)
+    ctx.lineTo(200,50)
+    ctx.lineTo(200,200)
+    // 填充闭合区域，如果path没有闭合，则fill()会自动闭合路径
+    ctx.fill()
+  }
+  // draw3()
+
+
+  // 绘制圆弧 1
+  // arc(x, y, r, startAngle, endAngle, anticlockwise): 以(x, y) 为圆心，以r 为半径，从 startAngle 弧度开始到endAngle弧度结束。anticlosewise 是布尔值，true 表示逆时针，false 表示顺时针(默认是顺时针)
+  // 注意：这里的度数都是弧度。  0 弧度是指的 x 轴正方向（radians=(Math.PI/180)*degrees   //角度转换成弧度）
+  function draw4() {
+    ctx.beginPath()
+    ctx.arc(50, 50, 40, 0, Math.PI / 2, false);
+    ctx.stroke();
+ 
+    ctx.beginPath();
+    ctx.arc(150, 50, 40, 0, -Math.PI / 2, true);
+    ctx.closePath();
+    ctx.stroke();
+ 
+    ctx.beginPath();
+    ctx.arc(50, 150, 40, -Math.PI / 2, Math.PI / 2, false);
+    ctx.fill();
+ 
+    ctx.beginPath();
+    ctx.arc(150, 150, 40, 0, Math.PI, false);
+    ctx.fill();
+  }
+  // draw4()
+
+
+  // 绘制圆弧 2
+  // arcTo(x1, y1, x2, y2, radius): 根据给定的控制点和半径画一段圆弧，最后再以直线连接两个控制点。
+  function draw5() {
+    ctx.beginPath()
+    ctx.moveTo(50,50)
+    //参数1、2：控制点1坐标   参数3、4：控制点2坐标  参数4：圆弧半径
+    ctx.arcTo(200, 50, 200, 200, 100)
+    ctx.stroke()
+
+    ctx.beginPath();
+    ctx.rect(50, 50, 10, 10);
+    ctx.rect(200, 50, 10, 10)
+    ctx.rect(200, 200, 10, 10)
+    ctx.fill()
+  }
+  // draw5()
+
+
+  // 二次贝塞尔曲线
+  function draw6() {
+    ctx.beginPath()
+    ctx.moveTo(10, 200) // 起始点
+    ctx.quadraticCurveTo(40, 100, 200, 200) // 绘制二次贝塞尔曲线： 控制点  结束点
+    ctx.stroke()
+
+    ctx.beginPath();
+    ctx.rect(10, 200, 10, 10);
+    ctx.rect(40, 100, 10, 10);
+    ctx.rect(200, 200, 10, 10);
+    ctx.fill();
+  }
+  // draw6()
+
+
+  // 三次贝塞尔曲线
+  function draw7() {
+    ctx.beginPath()
+    ctx.moveTo(10, 200) // 起始点
+    ctx.bezierCurveTo(20, 100, 100, 120, 200, 200) // 绘制三次贝塞尔曲线： 控制点1 控制点2  结束点
+    ctx.stroke()
+
+    ctx.beginPath();
+    ctx.rect(40, 200, 10, 10);
+    ctx.rect(20, 100, 10, 10);
+    ctx.rect(20, 100, 10, 10);
+    ctx.rect(200, 200, 10, 10);
+    ctx.fill();
+  }
+  // draw7()
+
+
+  // 添加样式和颜色
+  // fillStyle = color 设置图形的填充颜色
+  // strokeStyle = color 设置图形轮廓的颜色
+  function draw8() {
+    for(let i = 0; i<6; i++) {
+      for(let j = 0; j<6; j++) {
+        ctx.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' + Math.floor(255 - 42.5 * j) + ',0';
+        ctx.fillRect(j *50, i * 50, 50,50)
+      }
+    }
+  }
+  // draw8()
+
+
+  /**
+   * 部分样式说明：
+  */
+  // 1、line style 线宽。只能是正值。默认是 1.0。
+  // 2、lineCap = type 线条末端样式：
+    // (1)butt：线段末端以方形结束；
+    // (2)round：线段末端以圆形结束；
+    // (3)square：线段末端以方形结束，但是增加了一个宽度和线段相同，高度是线段厚度一半的矩形区域。
+  // 3、lineJoin = type 同一个 path 内，设定线条与线条间接合处的样式。
+    // (1) round 通过填充一个额外的，圆心在相连部分末端的扇形，绘制拐角的形状。 圆角的半径是线段的宽度。
+    // (2) bevel 在相连部分的末端填充一个额外的以三角形为底的区域， 每个部分都有各自独立的矩形拐角。
+    // (3) miter(默认) 通过延伸相连部分的外边缘，使其相交于一点，形成一个额外的菱形区域。
+  // 4 用 setLineDash 方法和 lineDashOffset 属性来制定虚线样式。 setLineDash 方法接受一个数组，来指定实线长度, 间隙长度；lineDashOffset属性设置起始偏移量。
+
+
+  // 绘制文本
+  // 1 fillText(text, x, y [, maxWidth]) 在指定的 (x,y) 位置填充指定的文本，绘制的最大宽度是可选的。
+  // 2 strokeText(text, x, y [, maxWidth]) 在指定的 (x,y) 位置绘制文本边框，绘制的最大宽度是可选的。
+    // 样式：
+    // font = value 当前我们用来绘制文本的样式。这个字符串使用和 CSS font 属性相同的语法。 默认的字体是 10px sans-serif。
+    // textAlign = value 文本对齐选项。 可选的值包括：start, end, left, right or center。 默认值是 start。
+    // textBaseline = value 基线对齐选项，可选的值包括：top, hanging, middle, alphabetic, ideographic, bottom。默认值是 alphabetic。。
+    // direction = value 文本方向。可能的值包括：ltr, rtl, inherit。默认值是 inherit。
+  function draw9() {
+    ctx.font = '20px sans-serif'
+    ctx.fillText('天若有情', 10, 100)
+    ctx.strokeText('天若有情', 10, 200)
+  }
+  // draw9()
+
+
+  // 绘制图片
+  function draw10() {
+    // 创建一个image元素
+    let img = new Image()
+    // 设置图片源地址
+    img.src = './img/001.jpg'
+    // img绘制完成之后
+    img.onload = function() {
+      // (1) 绘制图片 drawImage(image, x, y, width, height)
+      // ctx.drawImage(img, 0, 0, 100, 150)
+      // (2) 切片 drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight): 参数 前 4 个是定义图像源的切片位置和大小，后 4 个则是定义切片的目标显示位置和大小。
+      ctx.drawImage(img, 60, 168, 420, 420, 0, 0, 150, 150)
+    }
+  }
+  // draw10()
+
+
+  // 变形
+  // 1 translate(x, y) 用来移动 canvas 的原点到指定的位置, x 是左右偏移量，y 是上下偏移量
+  // 2 rotate(angle) 旋转坐标轴。旋转的角度(angle)，它是顺时针方向的，以弧度为单位的值。
+  // 3 scale(x, y) 增减图形在 canvas 中的像素数目，对形状，位图进行缩小或者放大。x,y 分别是横轴和纵轴的缩放因子，它们都必须是正值。值比 1.0 小表示缩 小，比 1.0 大则表示放大，值为 1.0 时什么效果都没有
+  // 4 transform(a, b, c, d, e, f): 变形矩阵
+  
+
+  // 合成： globalCompositeOperation = type
+  // 1 默认设置，新图像会覆盖在原有图像
+  // 2  source-in 仅仅会出现新图像与原来图像重叠的部分，其他区域都变成透明的。(包括其他的老图像区域也会透明)
+  // 3 source-out 仅仅显示新图像与老图像没有重叠的部分，其余部分全部透明。(老图像也不显示)
+  // 4 source-atop 新图像仅仅显示与老图像重叠区域。老图像仍然可以显示
+  // 5 destination-over 新图像会在老图像的下面
+  // 6 destination-in 仅仅新老图像重叠部分的老图像被显示，其他区域全部透明
+  // 7 destination-out 仅仅老图像与新图像没有重叠的部分。 注意显示的是老图像的部分区域
+  // 8 destination-atop 老图像仅仅仅仅显示重叠部分，新图像会显示在老图像的下面
+  // 9 lighter 新老图像都显示，但是重叠区域的颜色做加处理
+  // 10 darken 保留重叠部分最黑的像素。(每个颜色位进行比较，得到最小的)
+  // 11 lighten 保证重叠部分最量的像素。(每个颜色位进行比较，得到最大的)
+  // 12 xor 重叠部分会变成透明
+  // 13 copy 只有新图像会被保留，其余的全部被清除(边透明)
+
+
+  // 裁剪路径: clip() 把已经创建的路径转换成裁剪路径。
+  // 裁剪路径的作用是遮罩。只显示裁剪路径内的区域，裁剪路径外的区域会被隐藏。
+  // 注意：clip() 只能遮罩在这个方法调用之后绘制的图像，如果是 clip() 方法调用之前绘制的图像，则无法实现遮罩。
+  function draw11() {
+    ctx.beginPath()
+    ctx.arc(20,20,100,0,Math.PI*2)
+    ctx.clip()
+    ctx.fillStyle = 'pink'
+    ctx.fillRect(20,20,100,100)
+  }
+  // draw11()
+
+
+  // 状态的保存和恢复
+  function draw12() {
+    ctx.fillRect(0, 0, 150, 150);   // 使用默认设置绘制一个矩形
+    ctx.save();                  // 保存默认状态
+ 
+    ctx.fillStyle = 'red'       // 在原有配置基础上对颜色做改变
+    ctx.fillRect(15, 15, 120, 120); // 使用新的设置绘制一个矩形
+ 
+    ctx.save();                  // 保存当前状态
+    ctx.fillStyle = '#FFF'       // 再次改变颜色配置
+    ctx.fillRect(30, 30, 90, 90);   // 使用新的配置绘制一个矩形
+ 
+    ctx.restore();               // 重新加载之前的颜色状态
+    ctx.fillRect(45, 45, 60, 60);   // 使用上一次的配置绘制一个矩形
+ 
+    ctx.restore();               // 加载默认颜色配置
+    ctx.fillRect(60, 60, 30, 30);   // 使用加载的配置绘制一个矩形
+  }
+  // draw12()
+
+
+
+  /**
+   * canvas 绘制百分比加载
+  */
+  let centerX = canvas.width / 2,    // Canvas中心点x轴坐标
+      centerY = canvas.height / 2,   // Canvas中心点y轴坐标
+      rad = Math.PI * 2 / 100,       // 将360度分成100份，那么每一份就是rad度
+      speed = 0.1;                   // 加载的快慢就靠它了
+
+  // 绘制蓝色外圈
+  function blueCircle(n) {
+    ctx.save()
+    ctx.beginPath()
+    ctx.strokeStyle = '#49f49f'
+    ctx.lineWidth = 12
+    ctx.arc(centerX, centerY, 100, -Math.PI / 2, -Math.PI / 2 + n*rad, false)
+    ctx.stroke()
+    ctx.restore()
+  }
+
+  //绘制白色外圈
+  function whiteCircle(){
+    ctx.save();
+    ctx.beginPath();
+    ctx.strokeStyle = "#eee";
+    ctx.lineWidth = 12;
+    ctx.arc(centerX, centerY, 100 , 0, Math.PI*2, false);
+    ctx.stroke();
+    ctx.closePath();
+    ctx.restore();
+  }
+
+  //百分比文字绘制
+  function text(n){
+    ctx.save();
+    ctx.fillStyle = "#F47C7C";
+    ctx.font = "40px Arial";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(n.toFixed()+"%", centerX, centerY);
+    ctx.restore();
+  }
+
+  //动画循环
+  (function drawFrame(){
+    // window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行
+    window.requestAnimationFrame(drawFrame, canvas);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+    whiteCircle();
+    text(speed);
+    blueCircle(speed);
+          
+    if(speed > 100) speed = 0;
+    speed += 0.1;
+  }());
+
+
+  
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
