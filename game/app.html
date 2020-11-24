@@ -1,0 +1,180 @@
+<!--
+ * @Date: 2020-11-23 09:51:29
+ * @information: app
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>app</title>
+</head>
+<style>
+  .body {
+    width: 800px;
+    height: 600px;
+    border: 1px solid rgb(190, 190, 190);
+    margin: 50px auto 0;
+    position: relative;
+  }
+  .el {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background-color: #1fb19e;
+    /* border-radius: 50%; */
+    transition: width ease 0.5s;
+    transition: height ease 0.5s;
+  }
+  .spot {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    left: 120px;
+    top: 120px;
+    background-color: #ff6700;
+    /* border-radius: 50%; */
+  }
+  .text {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    color: #34b4f0;
+    font-size: 16px;
+  }
+
+
+</style>
+<body>
+
+  <div class="body" id="body">
+    <div class="el" id="element"></div>
+
+    <div class="spot" id="spot"></div>
+
+    <div class="text" id="text"></div>
+
+
+  </div>
+
+<script>
+  document.onkeydown = onKeyDirection
+
+  function onKeyDirection() {
+    if (event.keyCode === 37) {
+      onLeft()  // 左
+    }
+    if (event.keyCode === 38) {
+      onTop()  // 上
+    }
+    if (event.keyCode === 39) {
+      onRight()  // 右
+    }
+    if (event.keyCode === 40) {
+      onBottom()  // 下
+    }
+  }
+
+  // 步长
+  let stepLen = 6
+  // 当前随机点序号
+  let currentNum = 0
+  // 增长点
+  let growSize = 5
+  // body盒子
+  let body = document.getElementById('body')
+  // ele控制元素
+  let element = document.getElementById('element')
+  // spot随机点
+  let spot = document.getElementById('spot')
+  // text文字
+  let text = document.getElementById('text')
+
+
+  function getStyle(ele, attr) {
+    return Number(window.getComputedStyle(ele, null)[attr].replace('px', ''))
+  }
+
+  function setEle(val, type) {
+    let bodyWidth = getStyle(body, 'width')
+    let bodyHeight = getStyle(body, 'height')
+    let eleWidth = getStyle(element, 'width')
+    let num = getStyle(element, val)
+    if(type == '+') {
+      if((val=='left' && num>(bodyWidth-eleWidth)) || (val=='top' && num>(bodyHeight-eleWidth))) return;
+      element.style[val] = num + stepLen+'px'
+    }
+    if(type == '-') {
+      if((val=='left' && num<2) || (val=='top' && num<2)) return;
+      element.style[val] = num - stepLen+'px'
+    }
+    let mark = judge()
+    if(mark) {
+      currentNum ++
+      setSpot()
+      setText()
+      setElement()
+    }
+  }
+
+  function onLeft() {
+    setEle('left', '-')
+  }
+
+  function onTop() {
+    setEle('top', '-')
+  }
+
+  function onRight() {
+    setEle('left', '+')
+  }
+
+  function onBottom() {
+    setEle('top', '+')
+  }
+
+  function judge() {
+    let eleLeft = getStyle(element, 'left')
+    let eleTop = getStyle(element, 'top')
+    let eleWidth = getStyle(element, 'width')
+    let spotLeft = getStyle(spot, 'left')
+    let spotTop = getStyle(spot, 'top')
+    let spotWidth = getStyle(spot, 'width')
+    let mark = spotLeft>=eleLeft && spotTop>=eleTop && (spotLeft+spotWidth)<=(eleLeft+eleWidth) && (spotTop+spotWidth)<=(eleTop+eleWidth)
+    return mark
+  }
+
+  function setSpot() {
+    let bodyWidth = getStyle(body, 'width')
+    let bodyHeight = getStyle(body, 'height')
+    let radomLeft = Math.floor(Math.random() * bodyWidth)
+    let radomTop = Math.floor(Math.random() * bodyHeight)
+    spot.style.left = radomLeft+'px'
+    spot.style.top = radomTop+'px'
+  }
+
+  function setText() {
+    let textConfigArr = [
+      '太棒啦', '已经吃到啦，加油哦', `very good，这是你吃到的第${currentNum}了`, '加油，小哥哥(小姐姐)',
+    ]
+    let radomNum = Math.floor(Math.random() * textConfigArr.length)
+    text.innerHTML = textConfigArr[radomNum]
+  }
+
+  function setElement() {
+    let eleWidth = getStyle(element, 'width')
+    let eleHeight = getStyle(element, 'height')
+    element.style.width = eleWidth + growSize + 'px'
+    element.style.height = eleHeight + growSize + 'px'
+  }
+
+  
+</script>
+
+
+
+  
+</body>
+</html>
