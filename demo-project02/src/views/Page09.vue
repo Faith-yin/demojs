@@ -141,7 +141,7 @@ export default {
     },
 
     /**
-     * dataURL 转成 Blob
+     * dataURL(base64) 转成 Blob(二进制)
      */
     dataURLtoBlob(val) {
       let arr = val.split(','),
