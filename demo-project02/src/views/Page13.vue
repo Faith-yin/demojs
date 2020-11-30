@@ -19,7 +19,8 @@ export default {
 
   },
   created() {
-
+    let a = this.$ypfMethods._encryStr('15631171788',3,7)
+    console.log(a)
   },
   mounted() {
 

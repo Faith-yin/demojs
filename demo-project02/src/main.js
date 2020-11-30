@@ -8,9 +8,10 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import '@/style/index.scss'
+import ypfMethods from 'ypf-methods'
 
 
-Vue.config.productionTip = false
+Vue.prototype.$ypfMethods = ypfMethods
 
 new Vue({
   router,

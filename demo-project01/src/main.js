@@ -19,6 +19,8 @@ import VueMeta from 'vue-meta'
 import VueBetterScroll from 'vue2-better-scroll'
 import zjsmethods from 'zjsmethods'
 
+console.log(111, ypfMethods);
+
 
 Vue.config.productionTip = false
 

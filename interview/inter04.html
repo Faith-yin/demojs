@@ -1,0 +1,64 @@
+<!--
+ * @Date: 2020-11-29 16:16:39
+ * @information: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使用 JavaScript Proxy 实现简单的数据绑定</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <input type="text" id="input">
+    <button id="btn">更改</button>
+    <h3 id="text"></h3>
+  <div>
+
+  <script>
+    window.onload = ()=> {
+
+      const input = document.getElementById('input')
+      const text = document.getElementById('text')
+      const btn = document.getElementById('btn')
+
+
+      let inputObj = new Proxy({}, {
+        get: function(obj, key) {
+          return obj[key] ? obj[key] : ''
+        },
+        set: function(obj, key, val) {
+          if(key === 'text') {
+            obj[key] = val
+            input.innerHTML = val
+            text.innerHTML = val
+          }
+        }
+      })
+
+      input.oninput = function(e) {
+        inputObj.text = e.target.value
+      }
+
+      btn.onclick = function() {
+        text.innerHTML = 'hello world'
+      }
+
+    }
+
+
+
+
+
+  </script>
+
+
+
+
+</body>
+
+</html>
