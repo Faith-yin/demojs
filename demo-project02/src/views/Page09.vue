@@ -27,6 +27,9 @@ import PDFJS from 'pdfjs-dist'
 import JSZIP from 'jszip'
 import FileSaver from 'file-saver'
 
+import { _vaileFile } from 'zjsmethods'
+import ValidFile from '@/assets/js/validFile'
+
 export default {
   data() {
     return {
@@ -49,6 +52,15 @@ export default {
      */
     convertFile() {
       let file = document.getElementById('input').files
+      console.log('file对象:',file)
+
+
+      // 生成文件唯一md5标识字符串
+      new ValidFile(file[0]).vaildArrayBuffer().then(res=>{
+        console.log('文件唯一md5标识字符串:',res)
+      })
+
+
       if(!file.length) return;
       let {name, size} = file[0]
       Object.assign(this, {fileName: name, fileSize: size/1024/1024})

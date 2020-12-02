@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --report",
     "dev": "npm run serve"
   },
   "dependencies": {
@@ -13,12 +13,14 @@
     "core-js": "^3.6.5",
     "file-saver": "^2.0.2",
     "jszip": "^3.5.0",
+    "md5": "^2.3.0",
     "pdfjs-dist": "^2.3.200",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0",
-    "ypf-methods": "^1.3.21"
+    "ypf-methods": "^1.3.21",
+    "zjsmethods": "^1.5.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
