@@ -1,0 +1,81 @@
+<!--
+ * @Date: 2020-12-07 18:20:08
+ * @information: 鼠标拖拽盒子移动
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>27</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      background-color: #ff6700;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="box"></div>
+
+
+  <script>
+    let box = document.getElementById('box')
+
+    let offsetL = 0, offsetT = 0, windowWidth = 0, windowHeight = 0
+
+    limitDrag(box)
+
+    function limitDrag(node) {
+      // 按下
+      node.onmousedown = function(e) {
+        // 鼠标离盒子边框的距离 = 当前鼠标离浏览器左上角的距离 - 当前盒子里浏览器左上角的距离
+        offsetL = e.clientX - node.offsetLeft
+        offsetT = e.clientY - node.offsetTop
+
+        // 点击之后获取当前窗口的宽高
+        windowWidth = document.documentElement.clientWidth || document.body.clientWidth
+        windowHeight  = document.documentElement.clientHeight  || document.body.clientHeight
+
+
+        // 移动
+        this.onmousemove = function(e) {
+          // 当前鼠标的距离 - 鼠标按下计算出来的距离
+          this.style.left = e.clientX - offsetL + 'px'
+          this.style.top = e.clientY - offsetT + 'px'
+          // 当鼠标移出到浏览器外面的时候停止 e.clientY+20 是可能有边框滚动条距离比 window.innerHeight 小触发不了if
+          if(e.clientY + 20 >= windowHeight || e.clientX + 20 >= windowWidth || e.clientY <= 0 || e.clientX <= 0) {
+            this.onmousemove = null
+          }
+        }
+
+      }
+
+
+      // 鼠标抬起时停止移动
+      node.onmouseup = function(e) {
+        this.onmousemove = null
+      }
+
+    }
+
+
+
+
+
+  </script>
+
+
+</body>
+
+</html>
