@@ -1,11 +1,20 @@
 <!--
  * @Date: 2020-11-24 17:32:32
- * @information: 
+ * @information: 用额外的Vue实例实现事件的监听与触发，用于通信：$on,$once,$emit,$off的用法
+
+  rem 适配试验
 -->
 <template>
   <div id="page13">
 
     <button @click="onAddEvent">触发当前实例上的事件</button>
+
+
+    <div class="div-text">这是易制毒那测试赛文字这是易制毒那测试赛文字这是易制毒那测试赛文测试wenzi 文字测试wenzi 文字测试wenzi 文字测试wenzi 文字字</div>
+
+    <button>测试按钮</button>
+
+    <p class="p-text">测试wenzi 文字测试wenzi 文字测试wenzi 文字测试w测试wenzi 文字测试wenzi 文字enzi 文字</p>
 
   </div>
 </template>
@@ -38,5 +47,20 @@ export default {
 </script>
 
 <style lang="scss">
+#page13 {
 
+
+.div-text {
+  font-size: 16px;
+  border-top: solid #eee 1px;
+}
+
+.p-text {
+  font-size: 32px;
+}
+
+
+
+
+}
 </style>

@@ -1,6 +1,8 @@
 <!--
  * @Date: 2020-08-25 09:55:58
- * @information: homepage
+ * @information: homepage 
+ 
+ 用额外的Vue实例实现事件的监听与触发，用于通信：$on,$once,$emit,$off的用法
 -->
 <template>
   <div id="home-page">
@@ -86,7 +88,8 @@ export default {
 #home-page {
   text-align: center;
   a {
-    margin: 0 10px;
+    margin: 10px 0px;
+    display: block;
   }
 }
 </style>

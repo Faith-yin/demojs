@@ -9,6 +9,8 @@ import router from './router'
 import store from './store'
 import '@/style/index.scss'
 import ypfMethods from 'ypf-methods'
+// rem配置
+import '@/assets/js/rem'
 
 
 Vue.prototype.$ypfMethods = ypfMethods
