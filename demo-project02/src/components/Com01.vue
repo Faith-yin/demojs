@@ -40,6 +40,8 @@ export default {
   },
   mounted() {
     console.log(this.obj)
+
+    console.log('parent->', this.$parent)
   }
 }
 </script>

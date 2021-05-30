@@ -37,6 +37,8 @@ export default {
     axios.get(`https://dbsitefront.allhome.com.cn/v1/website/home/show/scrollDate`).then(({data}) => {
       this.obj = data.result
     })
+
+    console.log('children->',this.$children)
   }
 }
 </script>

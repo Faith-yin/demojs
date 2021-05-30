@@ -67,6 +67,14 @@ export default {
       console.log('fun05:', arr05)
       return arr05
     },
+    // 06 filter indexOf
+    fun06() {
+      let arr06 = this.arr.filter((el, i, array) => array.indexOf(el) === i)
+      console.log('fun06:', arr06)
+      return arr06
+    },
+
+
   },
   created() {
     this.fun01()
@@ -74,6 +82,7 @@ export default {
     this.fun03()
     this.fun04()
     this.fun05()
+    this.fun06()
   },
   mounted() {
 
