@@ -1,6 +1,6 @@
 <!--
  * @Date: 2021-05-25 18:15:58
- * @information: 
+ * @information: 使用scss封装阴影渐变
 -->
 <template>
   <div id="container">
