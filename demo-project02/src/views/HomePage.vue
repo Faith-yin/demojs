@@ -22,6 +22,7 @@
     <router-link to="Page14">Page14</router-link>
     <router-link to="Page15">Page15</router-link>
     <router-link to="Page16">Page16</router-link>
+    <router-link to="Page17">Page17</router-link>
 
 
     <button @click="onRemoveEvent">移除自定义事件监听器</button>
