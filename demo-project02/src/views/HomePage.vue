@@ -23,7 +23,7 @@
     <router-link to="Page15">Page15</router-link>
     <router-link to="Page16">Page16</router-link>
     <router-link to="Page17">Page17</router-link>
-
+    <router-link to="Page18">Page18</router-link>
 
     <button @click="onRemoveEvent">移除自定义事件监听器</button>
 
@@ -35,7 +35,7 @@
 import Bus from '@/assets/js/event_bus'
 
 export default {
-  data() {
+  data () {
     return {
       homeName: '120....'
     }
@@ -46,7 +46,7 @@ export default {
      * @Date: 2020-12-19 11:30:20
      * @information: 在另外新建的vue实例 通过 $on() 监听相应事件, 每次都会触发
      */
-    funEvent() {
+    funEvent () {
       Bus.$on('testFun', e => {
         console.log('$on 捕获到事件了，参数：', e, Bus)
       })
@@ -57,7 +57,7 @@ export default {
      * @Date: 2020-12-20 09:42:07
      * @information: $once 监听一个自定义事件，但是只触发一次。一旦触发之后，监听器就会被移除。
      */
-    funEvent2() {
+    funEvent2 () {
       Bus.$once('testFun', e => {
         console.log('$once 捕获到事件了，参数：', e, Bus)
       })
@@ -68,21 +68,21 @@ export default {
      * @Date: 2020-12-20 09:45:56
      * @information: 移除自定义事件监听器
      */
-    onRemoveEvent() {
+    onRemoveEvent () {
       Bus.$off('testFun')
     },
 
   },
-  created() {
+  created () {
 
     this.funEvent()
 
     // this.funEvent2()
 
-    console.log('Bus实例：',  Bus)
+    console.log('Bus实例：', Bus)
 
   },
-  mounted() {
+  mounted () {
 
   }
 }
